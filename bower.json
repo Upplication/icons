@@ -19,7 +19,9 @@
   "private": true,
   "ignore": [
     "*",
-    "!dist/**",
-    "!bower.json"
+    "!LICENSE",
+    "!README.md",
+    "!bower.json",
+    "!dist/**"
   ]
 }

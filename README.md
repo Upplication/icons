@@ -18,7 +18,7 @@ $ bower install Upplication/icons
 
 ### Raw
 ```html
-<link rel="stylesheet" type="text/css" href="//upplication.github.io/dist/upplication-icons.css" />
+<link rel="stylesheet" type="text/css" href="//upplication.github.io/icons/dist/upplication-icons.css" />
 ```
 
 ## Contributing

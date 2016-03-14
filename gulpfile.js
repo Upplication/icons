@@ -83,10 +83,12 @@ gulp.task('demopage', function(cb) {
     cb()
 })
 
-gulp.task('default', function(cb) {
+gulp.task('compile', function(cb) {
     seq('iconfont',
         'webfont',
         'demopage',
         cb
     );
 })
+
+gulp.task('default', [ 'compile' ]);
