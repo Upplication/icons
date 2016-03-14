@@ -1,0 +1,31 @@
+{
+  "name": "upplication-icons",
+  "version": "1.0.0",
+  "description": "Icon collection for Upplication web and dashboard",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "htts://github.com/Upplication/icons"
+  },
+  "keywords": [
+    "icons",
+    "webfont",
+    "css",
+    "cssicon",
+    "iconcss",
+    "gulp"
+  ],
+  "author": "Juan José Herrero Barbosa <juanjo.herrero@upplication.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-iconfont": "^6.0.0",
+    "lodash": "^4.6.1"
+  },
+  "devDependencies": {
+    "run-sequence": "^1.1.5"
+  }
+}
