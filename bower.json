@@ -1,7 +1,7 @@
 {
   "name": "upplication-icons",
   "description": "Icon collection for Upplication web and dashboard",
-  "main": "dist/upplication-icons.css",
+  "main": "upplication-icons.css",
   "authors": [
     "Juan José Herrero Barbosa <juanjo.herrero@upplication.com>"
   ],
@@ -14,7 +14,7 @@
     "iconcss",
     "gulp"
   ],
-  "homepage": "https://github.com/Upplication/icons",
+  "homepage": "https://upplication.github.io/icons",
   "moduleType": [],
   "private": true,
   "ignore": [
@@ -22,6 +22,7 @@
     "!LICENSE",
     "!README.md",
     "!bower.json",
-    "!dist/**"
+    "!index.html"
+    "!upplication-icons.css"
   ]
 }

@@ -21,11 +21,12 @@
   "author": "Juan José Herrero Barbosa <juanjo.herrero@upplication.com>",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^0.20.0",
     "gulp": "^3.9.1",
     "gulp-iconfont": "^6.0.0",
-    "lodash": "^4.6.1"
-  },
-  "devDependencies": {
+    "gulp-util": "^3.0.7",
+    "lodash": "^4.6.1",
+    "plexer": "^1.0.1",
     "run-sequence": "^1.1.5"
   }
 }

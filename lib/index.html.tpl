@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>WebFont: upplication-icons</title>
+        <title>WebFont: <%- fontName %></title>
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="upplication-icons.css" />
+        <link rel="stylesheet" type="text/css" href="<%- fontName %>.css" />
         <style type="text/css">
             body {
                 font-family: Lato;
@@ -25,26 +25,20 @@
         </style>
         <script type="text/javascript">
             function glyphPrompt(glyph) {
-                var iClass = 'icon icon-' + glyph;
+                var iClass = '<%- iconClass %> <%- iconClass %>-' + glyph;
                 var iTag = '<i class="' + iClass + '"></i>';
                 window.prompt("Copy to clipboard: Ctrl+C, Enter", iTag);
             }
         </script>
     </head>
     <body>
-        <h2>WebFont: upplication-icons</h2>
-        
-        <div class="icon-container" onclick="glyphPrompt('cutlery')">
-            <div class="icon icon-cutlery icon-2x"></div>
-            <div class="glyph-name">cutlery</div>
-            <!-- <span>.icon.icon-cutlery</span> -->
+        <h2>WebFont: <%- fontName %></h2>
+        <% glyphs.forEach(function(glyph) { %>
+        <div class="icon-container" onclick="glyphPrompt('<%- glyph.name %>')">
+            <div class="<%- iconClass %> <%- iconClass %>-<%- glyph.name %> <%- iconClass %>-2x"></div>
+            <div class="glyph-name"><%- glyph.name %></div>
+            <!-- <span>.<%- iconClass %>.<%- iconClass %>-<%- glyph.name %></span> -->
         </div>
-        
-        <div class="icon-container" onclick="glyphPrompt('loyalty')">
-            <div class="icon icon-loyalty icon-2x"></div>
-            <div class="glyph-name">loyalty</div>
-            <!-- <span>.icon.icon-loyalty</span> -->
-        </div>
-        
+        <% }) %>
     </body>
 </html>
