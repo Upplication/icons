@@ -6,6 +6,7 @@ var fs       = require('fs')
  ,  gutil    = require('gulp-util')
  ,  seq      = require('run-sequence')
  ,  svgsize  = require('./lib/gulp/svgsize')
+ ,  release  = require('./lib/gulp/release')
  ,  webfont  = require('./lib/gulp/webfont')
 
 // Configs
@@ -20,6 +21,7 @@ var srcPath      = './lib'
  ,  srcHtmlTpl   = path.join(__dirname, srcPath, 'index.html.tpl')
  ,  dstHtmlFile  = path.join(__dirname, 'index.html')
  ,  srcCssTpl    = path.join(__dirname, srcPath, 'iconfont.css.tpl')
+ ,  dstCssFile   = path.join(__dirname, fontName + '.css')
 
 var glyphs = [] // For sharing data among tasks
 
@@ -52,6 +54,16 @@ gulp.task('demopage', function(cb) {
     });
     fs.writeFileSync(dstHtmlFile, htmlCompiled);
     cb()
+})
+
+gulp.task('gitwork', function(cb) {
+    return gulp.src([
+            'package.json',
+            srcIconsPath,
+            dstHtmlFile,
+            dstCssFile
+        ])
+        .pipe(release())
 })
 
 gulp.task('default', function(cb) {
