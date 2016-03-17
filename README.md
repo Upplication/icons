@@ -1,5 +1,6 @@
 # Upplication Icons
-This is the collection of icons used by Upplication in our dashboard and/or landing page.
+This is the collection of icons used by Upplication in our dashboard and/or landing page.  
+Live demo available at http://upplication.github.io/icons
 
 ## Usage
 
