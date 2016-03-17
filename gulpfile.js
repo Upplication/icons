@@ -60,6 +60,13 @@ gulp.task('demopage', function(cb) {
 
 gulp.task('gitwork', release())
 
+gulp.task('version', function(cb) {
+    seq('default',
+        'gitwork',
+        cb
+    );
+})
+
 gulp.task('default', function(cb) {
     seq('webfont',
         'demopage',
