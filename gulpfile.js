@@ -4,10 +4,11 @@ var fs       = require('fs')
  ,  _        = require('lodash')
  ,  gulp     = require('gulp')
  ,  gutil    = require('gulp-util')
+ ,  open     = require('gulp-open')
  ,  seq      = require('run-sequence')
  ,  svgsize  = require('./lib/gulp/svgsize')
- ,  release  = require('./lib/gulp/release')
  ,  webfont  = require('./lib/gulp/webfont')
+ ,  release  = require('./lib/gulp/release')
 
 // Configs
 var fontName  = 'upplication-icons'
@@ -53,18 +54,11 @@ gulp.task('demopage', function(cb) {
         glyphs: glyphs
     });
     fs.writeFileSync(dstHtmlFile, htmlCompiled);
-    cb()
+    return gulp.src(dstHtmlFile)
+                .pipe(open());
 })
 
-gulp.task('gitwork', function(cb) {
-    return gulp.src([
-            'package.json',
-            srcIconsPath,
-            dstHtmlFile,
-            dstCssFile
-        ])
-        .pipe(release())
-})
+gulp.task('gitwork', release())
 
 gulp.task('default', function(cb) {
     seq('webfont',
