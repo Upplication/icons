@@ -22,7 +22,7 @@
     "!LICENSE",
     "!README.md",
     "!bower.json",
-    "!index.html"
+    "!index.html",
     "!upplication-icons.css"
   ]
 }
