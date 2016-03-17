@@ -19,13 +19,13 @@ $ bower install Upplication/icons
 ```
 gulp
 ```
-Runs webfont and demopage tasks.
+Runs webfont, demogen, demo tasks.
 
 ### version
 ```
 gulp version
 ```
-Runs default and gitwork tasks.
+Runs webfont, demogen and gitwork tasks.
 
 ### webfont
 ```
@@ -34,13 +34,19 @@ gulp webfont
 Takes all the icons available at `lib/icons`, checks them for correct size, generate the base64 version
 of a woff font that includes all of them and spit out the `upplication-icons.css` file ready to use.
 
-### demopage
+### demogen
 **DO NOT RUN THIS TASK BY ITSELF**
 ```
-gulp demopage
+gulp demogen
 ```
-Given the available glyphs, generate `index.html`, containing all of the available icons. Then opens
-the default webrowser with the generated file.
+Given the available glyphs, generate `index.html`, containing all of the available icons.
+
+### demo
+**DO NOT RUN THIS TASK BY ITSELF**
+```
+gulp demo
+```
+Opens the `index.html` file in the OS default browser
 
 ### gitwork
 ```

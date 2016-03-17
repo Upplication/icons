@@ -45,7 +45,7 @@ gulp.task('webfont', function() {
     .pipe(gulp.dest(dstPath))
 });
 
-gulp.task('demopage', function(cb) {
+gulp.task('demogen', function(cb) {
     var htmlTemplate = fs.readFileSync(srcHtmlTpl, 'utf8');
     var htmlCompiler = _.template(htmlTemplate);
     var htmlCompiled = htmlCompiler({
@@ -54,6 +54,10 @@ gulp.task('demopage', function(cb) {
         glyphs: glyphs
     });
     fs.writeFileSync(dstHtmlFile, htmlCompiled);
+    cb()
+})
+
+gulp.task('demo', function() {
     return gulp.src(dstHtmlFile)
                 .pipe(open());
 })
@@ -61,7 +65,8 @@ gulp.task('demopage', function(cb) {
 gulp.task('gitwork', release())
 
 gulp.task('version', function(cb) {
-    seq('default',
+    seq('webfont',
+        'demogen',
         'gitwork',
         cb
     );
@@ -69,7 +74,8 @@ gulp.task('version', function(cb) {
 
 gulp.task('default', function(cb) {
     seq('webfont',
-        'demopage',
+        'demogen',
+        'demo',
         cb
     );
 });
