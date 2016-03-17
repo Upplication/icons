@@ -23,10 +23,14 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "gulp": "^3.9.1",
+    "gulp-git": "^1.7.0",
     "gulp-iconfont": "^6.0.0",
+    "gulp-open": "^1.0.0",
     "gulp-util": "^3.0.7",
     "lodash": "^4.6.1",
     "plexer": "^1.0.1",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "semver": "^5.1.0",
+    "through2": "^2.0.1"
   }
 }
