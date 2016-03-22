@@ -11,6 +11,11 @@
                 text-align: center;
             }
 
+            .icon::before {
+                border: 1px solid #eee;
+                padding: 0.3em;
+            }
+
             .icon-container {
                 display: inline-block;
                 border: 1px dashed #CCC;
