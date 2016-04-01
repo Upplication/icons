@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+<path d="M860 90q43 0 73-31t31-74q0-43-31-73t-73-31l-365 0q-44 0-74 31t-31 73 31 74 74 31l365 0z m0 364q43 0 73-31t31-73-31-73-73-31l-365 0q-44 0-74 31t-31 73 31 73 74 31l365 0z m0 365q43 0 73-31t31-73q0-44-31-74t-73-31l-365 0q-42 0-74 31t-31 74 31 73 74 31l365 0z m-860-834q0 130 130 130t130-130-130-130-130 130z m0 365q0 130 130 130t130-130-130-130-130 130z m0 365q0 130 130 130t130-130-130-130-130 130z"/>
+</svg>
