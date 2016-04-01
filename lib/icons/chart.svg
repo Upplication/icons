@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
-<path d="M0-29l0 758 1000 0 0-758-1000 0z m123 123l754 0 0 512-754 0 0-512z m27 162l125 104 36 29 31-33 43-47 105 166 47 72 39-78 61-125 127 223 86-49-176-305-45-80-41 84-63 131-91-142-34-53-43 45-54 56-90-74z"/>
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<path d="M14,426.655V68.5h472.5v358.155H14z M72.117,368.538h356.266V126.617H72.117V368.538z M84.875,291.992l59.063-49.14
+	l17.01-13.702l14.647,15.592l20.318,22.207l49.612-78.435l22.208-34.02l18.428,36.855l28.822,59.063l60.008-105.368l40.635,23.152
+	l-83.16,144.113l-21.263,37.8l-19.372-39.69l-29.768-61.897l-42.998,67.094L203,340.66l-20.317-21.263l-25.515-26.46l-42.525,34.965
+	L84.875,291.992z"/>
 </svg>

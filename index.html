@@ -11,6 +11,11 @@
                 text-align: center;
             }
 
+            .icon::before {
+                border: 1px solid #eee;
+                padding: 0.3em;
+            }
+
             .icon-container {
                 display: inline-block;
                 border: 1px dashed #CCC;
@@ -33,6 +38,12 @@
     </head>
     <body>
         <h2>WebFont: upplication-icons</h2>
+        
+        <div class="icon-container" onclick="glyphPrompt('align-center')">
+            <div class="icon icon-align-center icon-2x"></div>
+            <div class="glyph-name">align-center</div>
+            <!-- <span>.icon.icon-align-center</span> -->
+        </div>
         
         <div class="icon-container" onclick="glyphPrompt('cutlery')">
             <div class="icon icon-cutlery icon-2x"></div>
