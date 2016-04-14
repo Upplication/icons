@@ -25,7 +25,7 @@ var srcPath      = './lib'
  ,  srcHtmlTpl   = path.join(__dirname, srcPath, 'index.html.tpl')
  ,  dstHtmlFile  = path.join(__dirname, dstPath, 'index.html')
  ,  srcCssTpl    = path.join(__dirname, srcPath, 'iconfont.css.tpl')
- ,  dstCssFile   = path.join(__dirname, fontName + '.css')
+ ,  dstCssFile   = path.join(__dirname, dstPath, fontName + '.css')
 
 var glyphs = [] // For sharing data among tasks
 
@@ -85,6 +85,7 @@ gulp.task('gitwork', release())
 
 gulp.task('version', function(cb) {
     seq('webfont',
+        'minify',
         'demogen',
         'gitwork',
         cb
