@@ -1,9 +1,10 @@
 {
   "name": "upplication-icons",
   "description": "Icon collection for Upplication web and dashboard",
-  "main": "upplication-icons.css",
+  "main": "dist/upplication-icons.css",
   "authors": [
-    "Juan José Herrero Barbosa <juanjo.herrero@upplication.com>"
+    "Juan José Herrero Barbosa <juanjo.herrero@upplication.com>",
+    "Javier Lorenzo Fernandez <javier.lorenzo@upplication.com>"
   ],
   "license": "MIT",
   "keywords": [
@@ -23,6 +24,6 @@
     "!README.md",
     "!bower.json",
     "!index.html",
-    "!upplication-icons.css"
+    "!dist/*.css"
   ]
 }
