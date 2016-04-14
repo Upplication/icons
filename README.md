@@ -33,7 +33,7 @@ Runs webfont, demogen and gitwork tasks.
 gulp webfont
 ```
 Takes all the icons available at `lib/icons`, checks them for correct size, generate the base64 version
-of a woff font that includes all of them and spit out the `upplication-icons.css` file ready to use.
+of a woff font that includes all of them and spit out the `dist/upplication-icons.css` file ready to use.
 
 ### demogen
 **DO NOT RUN THIS TASK BY ITSELF**
@@ -57,7 +57,7 @@ If untracked svg icons are available at `lib/icons`:
 * Adds all of them to commit
 * Generate a message containing the list of new icons
 * Bump `package.json` patch version
-* Adds `package.json`, `index.html` and `upplication-icons.css` to commit
+* Adds `package.json` and `dist/*.css` to commit
 * Commits with the new version + previous message
 * Tags the previous commit with tne new version and message as release notes
 
