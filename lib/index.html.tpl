@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>WebFont: <%- fontName %></title>
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="<%- fontName %>.css" />
+        <link rel="stylesheet" type="text/css" href="dist/<%- fontName %>.css" />
         <style type="text/css">
             body {
                 font-family: Lato;
