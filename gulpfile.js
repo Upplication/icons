@@ -23,7 +23,7 @@ var srcPath      = './lib'
  ,  dstPath      = './dist'
  ,  srcIconsPath = path.join(__dirname, srcPath, 'icons/*.svg')
  ,  srcHtmlTpl   = path.join(__dirname, srcPath, 'index.html.tpl')
- ,  dstHtmlFile  = path.join(__dirname, 'index.html')
+ ,  dstHtmlFile  = path.join(__dirname, dstPath, 'index.html')
  ,  srcCssTpl    = path.join(__dirname, srcPath, 'iconfont.css.tpl')
  ,  dstCssFile   = path.join(__dirname, fontName + '.css')
 
@@ -58,7 +58,7 @@ gulp.task('webfont', function() {
 });
 
 gulp.task('minify', function() {
-    return gulp.src(path.join(dstPath,'/*.css'))
+    return gulp.src(dstCssFile)
         .pipe(cssmin({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest(dstPath))
