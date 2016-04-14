@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+	- 0.12
+script:
+	- set -e
+	- rm -rf dist || exit 0
+	- gulp
+	- cd dist
+	- git init
+	- git config user.name "Travis CI"
+	- git config user.email "travis@upplication.com"
+	- git add .
+	- git commit -m "Deploy to GitHub Pages"
+	- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+env:
+	global:
+		- GH_REF: github.com/Upplication/icons.git
+		- secure: 5pj6+jyp/SJwkYtOSsijGCRInUq04goKIyS4nlv9XQIhbxo0v+XU5X+t28h8NpfC6wRn4WzKRCPTV0LcSHrkwPnFWImIf1nts5YWs0Njfnwwuv51+tvxSAFbLWNUgf9RDTbHXFNlpxTku1HYvr32N3BqfgmX8v4EOtEiFO1MYFN/DGEKGKzODX1izY5yJ/hCco/BAShwrwMFvuUoDI4/n8AlG3CKmDewh6Mt4FhjChVw3knIIkkvzXFCaYbu7b8KhIR9CGZ5HDm2kPbSuRnnd63EoFh7Prmqnj5nlGoc8PLyK7jVj8A9lESldsf1GW4q+AnLtxQSy++kQLF+6B096+MVT6wMCXaAwDmY3/RLHurQr6i4tdXeaxdzaqroz2npy5THNBcsnmYORjgP2V5dnWJgtIoFFfRmpgXs3Y7YflR1oZundBQaMDV1xN2SiA584z9jr1aiIvohN6DuTAC+fajZaEXWEe0v7yVIDLdlePDdjZ0nILSRQkYXrhqIY5J0ltGzriEXIjlzXaOZm/pJKoB0kg6Z2foC4K/q7N6cEjM/50xfKhtzaT1Jr9aqG4iXfPakWA4p/fz9R55gLXpgbft+wde2+sLQCly1jAPq0Vo7dNkwU+4xHL54CUwN1KZ5wRj9YpGuhOJKskrs19dMnj3fWTU/jkzkn2yOmcnij0I=
