@@ -29,17 +29,17 @@
             }
         </style>
         <script type="text/javascript">
-            function glyphPrompt(glyph) {
+            function glyphPrompt(glyph, code) {
                 var iClass = '<%- iconClass %> <%- iconClass %>-' + glyph;
                 var iTag = '<i class="' + iClass + '"></i>';
-                window.prompt("Copy to clipboard: Ctrl+C, Enter", iTag);
+                window.prompt("Char code: " + code + ".\r\n Copy to clipboard: Ctrl+C, Enter", iTag);
             }
         </script>
     </head>
     <body>
         <h2>WebFont: <%- fontName %></h2>
         <% glyphs.forEach(function(glyph) { %>
-        <div class="icon-container" onclick="glyphPrompt('<%- glyph.name %>')">
+        <div class="icon-container" onclick="glyphPrompt('<%- glyph.name %>', '<%- glyph.code %>')">
             <div class="<%- iconClass %> <%- iconClass %>-<%- glyph.name %> <%- iconClass %>-2x"></div>
             <div class="glyph-name"><%- glyph.name %></div>
             <!-- <span>.<%- iconClass %>.<%- iconClass %>-<%- glyph.name %></span> -->

@@ -1,6 +1,7 @@
 # Upplication Icons
 [![Build Status](https://travis-ci.org/Upplication/icons.svg?branch=master)](https://travis-ci.org/Upplication/icons)
-This is the collection of icons used by Upplication in our dashboard and/or landing page.  
+
+  This is the collection of icons used by Upplication in our dashboard and/or landing page.  
 Live demo available at http://upplication.github.io/icons
 
 ## Usage
@@ -68,7 +69,9 @@ If untracked svg icons are available at `lib/icons`:
 There is a really easy way to contribute with icons to this project
 * Clone the project
 * Run `npm install`
-* Add the new icons to `lib/icons` directory
+* Add the new icons to `lib/icons` directory. Don't worry if you see icons with names like `uEA01-align-center.svg`.
+It's normal and *automatic*. Add as many icons as you want with the name you want to give the glype. For example,
+you would create a file named `align-center.svg` but later the script would rename it to `uEA01-align-center.svg`.
 * Run `gulp` as much as you need. This will generate the font and css files and open a live local demo with them.
 * When you are done, run `gulp version`
 * Run `git push --follow-tags` OR `git push && git push --tags`
