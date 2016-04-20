@@ -1,4 +1,5 @@
 # Upplication Icons
+[![Build Status](https://travis-ci.org/Upplication/icons.svg?branch=master)](https://travis-ci.org/Upplication/icons)
 This is the collection of icons used by Upplication in our dashboard and/or landing page.  
 Live demo available at http://upplication.github.io/icons
 
