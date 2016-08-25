@@ -1,7 +1,10 @@
 {
   "name": "upplication-icons",
   "description": "Icon collection for Upplication web and dashboard",
-  "main": "dist/upplication-icons.css",
+  "main": [
+    "dist/upplication-icons.css"
+    "dist/upplication-icons.less"
+  ],
   "authors": [
     "Juan José Herrero Barbosa <juanjo.herrero@upplication.com>",
     "Javier Lorenzo Fernandez <javier.lorenzo@upplication.com>"
