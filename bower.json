@@ -2,7 +2,7 @@
   "name": "upplication-icons",
   "description": "Icon collection for Upplication web and dashboard",
   "main": [
-    "dist/upplication-icons.css"
+    "dist/upplication-icons.css",
     "dist/upplication-icons.less"
   ],
   "authors": [
