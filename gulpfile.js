@@ -7,6 +7,7 @@ var fs        = require('fs')
  ,  rename    = require('gulp-rename')
  ,  open      = require('gulp-open')
  ,  cssmin    = require('gulp-clean-css')
+ ,  less      = require('gulp-less')
  ,  seq       = require('run-sequence')
  ,  svgsize   = require('./lib/gulp/svgsize')
  ,  normalize = require('./lib/gulp/normalize')
@@ -24,7 +25,7 @@ var srcPath      = './lib'
  ,  srcIconsPath = path.join(__dirname, srcPath, 'icons/*.svg')
  ,  srcHtmlTpl   = path.join(__dirname, srcPath, 'index.html.tpl')
  ,  dstHtmlFile  = path.join(__dirname, dstPath, 'index.html')
- ,  srcCssTpl    = path.join(__dirname, srcPath, 'iconfont.css.tpl')
+ ,  srcCssTpl    = path.join(__dirname, srcPath, 'iconfont.less.tpl')
  ,  dstCssFile   = path.join(__dirname, dstPath, fontName + '.css')
 
 var glyphs = [] // For sharing data among tasks
@@ -46,6 +47,7 @@ gulp.task('webfont', function() {
         fontName: fontName,
         iconClass: iconClass,
         cssTemplate: srcCssTpl,
+        extension: 'less',
         centerHorizontally: true,
         fixedWidth: true,
         normalize: true
@@ -54,6 +56,8 @@ gulp.task('webfont', function() {
         glyphs = g
         gutil.log('Generated webfont', gutil.colors.green(fontName), 'with', gutil.colors.cyan(g.length), 'glyphs')
     })
+    .pipe(gulp.dest(dstPath))
+    .pipe(less())
     .pipe(gulp.dest(dstPath))
 });
 
