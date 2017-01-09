@@ -74,6 +74,7 @@ It's normal and *automatic*. Add as many icons as you want with the name you wan
 you would create a file named `align-center.svg` but later the script would rename it to `uEA01-align-center.svg`.
 * Run `gulp` as much as you need. This will generate the font and css files and open a live local demo with them.
 * When you are done, run `gulp version`
+* Create new tag `git tag -a (new version number) -m (version release: new version number)`
 * Run `git push --follow-tags` OR `git push && git push --tags`
 * Done! :)
 
