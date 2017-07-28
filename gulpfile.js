@@ -17,16 +17,16 @@ var fs        = require('fs')
 // Configs
 var fontName  = 'upplication-icons'
  ,  iconClass = 'icon'
- ,  svgSize   = '500px'
 
 // Path shorthands
-var srcPath      = './lib'
- ,  dstPath      = './dist'
- ,  srcIconsPath = path.join(__dirname, srcPath, 'icons/*.svg')
- ,  srcHtmlTpl   = path.join(__dirname, srcPath, 'index.html.tpl')
- ,  dstHtmlFile  = path.join(__dirname, dstPath, 'index.html')
- ,  srcCssTpl    = path.join(__dirname, srcPath, 'iconfont.less.tpl')
- ,  dstCssFile   = path.join(__dirname, dstPath, fontName + '.css')
+var srcPath        = './lib'
+ ,  dstPath        = './dist'
+ ,  srcIconsPath   = path.join(__dirname, srcPath, 'icons/*.svg')
+ ,  srcHtmlTpl     = path.join(__dirname, srcPath, 'index.html.tpl')
+ ,  dstHtmlFile    = path.join(__dirname, dstPath, 'index.html')
+ ,  dstJsonMapFile = path.join(__dirname, dstPath, 'iconmap.json')
+ ,  srcCssTpl      = path.join(__dirname, srcPath, 'iconfont.less.tpl')
+ ,  dstCssFile     = path.join(__dirname, dstPath, fontName + '.css')
 
 var glyphs = [] // For sharing data among tasks
 
@@ -61,6 +61,12 @@ gulp.task('webfont', function() {
     .pipe(gulp.dest(dstPath))
 });
 
+gulp.task('webfont-json-map', function(cb) {
+    var glyphMap = _.keyBy(glyphs, 'name')
+    fs.writeFileSync(dstJsonMapFile, JSON.stringify(glyphMap))
+    cb()
+});
+
 gulp.task('minify', function() {
     return gulp.src(dstCssFile)
         .pipe(cssmin({ compatibility: 'ie8' }))
@@ -89,6 +95,7 @@ gulp.task('gitwork', release())
 
 gulp.task('version', function(cb) {
     seq('webfont',
+        'webfont-json-map',
         'minify',
         'demogen',
         'gitwork',
@@ -98,6 +105,7 @@ gulp.task('version', function(cb) {
 
 gulp.task('default', function(cb) {
     seq('webfont',
+        'webfont-json-map',
         'minify',
         'demogen',
         'demo',

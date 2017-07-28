@@ -4,7 +4,8 @@
   "description": "Icon collection for Upplication web and dashboard",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "gulp version && git add -A dist/*"
   },
   "repository": {
     "type": "git",
@@ -33,12 +34,8 @@
     "lodash": "^4.6.1",
     "plexer": "^1.0.1",
     "run-sequence": "^1.1.5",
-    "semver": "^5.1.0",
     "svg-path-bounding-box": "^1.0.4",
     "svgpath": "^2.1.6",
     "through2": "^2.0.1"
-  },
-  "dependencies": {
-    "gulp-less": "^3.3.0"
   }
 }

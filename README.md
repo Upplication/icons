@@ -55,13 +55,10 @@ Opens the `index.html` file in the OS default browser
 ```
 gulp gitwork
 ```
-If untracked svg icons are available at `lib/icons`:
-* Adds all of them to commit
-* Generate a message containing the list of new icons
-* Bump `package.json` patch version
-* Adds `package.json` and `dist/*.css` to commit
-* Commits with the new version + previous message
-* Tags the previous commit with tne new version and message as release notes
+If new svg icons or updated ones are available at `lib/icons`:
+* Generate a commit mesage containing the list of new/updated icons
+* Adds `lib/icons/*.svg` `dist/*` to commit
+* Commit
 
 ## Contributing
 
@@ -73,9 +70,8 @@ There is a really easy way to contribute with icons to this project
 It's normal and *automatic*. Add as many icons as you want with the name you want to give the glype. For example,
 you would create a file named `align-center.svg` but later the script would rename it to `uEA01-align-center.svg`.
 * Run `gulp` as much as you need. This will generate the font and css files and open a live local demo with them.
-* When you are done, run `gulp version`
-* Create new tag `git tag -a (new version number) -m (version release: new version number)`
-* Run `git push --follow-tags` OR `git push && git push --tags`
+* When you are done, run `npm version patch`
+* Run `git push --follow-tags`
 * Done! :)
 
 ```
@@ -93,3 +89,4 @@ allows us to:
 * Generate a CSS file that embeds the woff webfont in base64 format.
 * Add each icon to the CSS file with its own class (based on the svg filename) and a common one.
 * Generate a html demo page with all the available icons.
+* Generate a JSON map of every icon name and their unicode
