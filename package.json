@@ -1,6 +1,6 @@
 {
   "name": "upplication-icons",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Icon collection for Upplication web and dashboard",
   "main": "gulpfile.js",
   "scripts": {
