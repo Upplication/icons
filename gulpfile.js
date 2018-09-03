@@ -16,19 +16,24 @@ var fs        = require('fs')
 
 // Configs
 var fontName  = 'upplication-icons'
+ ,  fontNameWingu = 'wingu-icons'
  ,  iconClass = 'icon'
 
 // Path shorthands
 var srcPath        = './lib'
  ,  dstPath        = './dist'
  ,  srcIconsPath   = path.join(__dirname, srcPath, 'icons/*.svg')
+ ,  srcIconsPathWingu   = path.join(__dirname, srcPath, 'icons-wingu/*.svg')
  ,  srcHtmlTpl     = path.join(__dirname, srcPath, 'index.html.tpl')
- ,  dstHtmlFile    = path.join(__dirname, dstPath, 'index.html')
- ,  dstJsonMapFile = path.join(__dirname, dstPath, 'iconmap.json')
+ ,  dstHtmlUpplication    = path.join(__dirname, dstPath, 'indexupplication.html')
+ ,  dstHtmlWingu    = path.join(__dirname, dstPath, 'indexwingu.html')
+ ,  dstJsonMapFileUpp = path.join(__dirname, dstPath, 'upplicationiconmap.json')
+ ,  dstJsonMapFileWingu = path.join(__dirname, dstPath, 'winguiconmap.json')
  ,  srcCssTpl      = path.join(__dirname, srcPath, 'iconfont.less.tpl')
  ,  dstCssFile     = path.join(__dirname, dstPath, fontName + '.css')
-
+ ,  dstCssFileWingu     = path.join(__dirname, dstPath, fontNameWingu + '.css')
 var glyphs = [] // For sharing data among tasks
+var glyphswingu = []
 
 gulp.task('svgs', function() {
     return gulp.src([ srcIconsPath ])
@@ -42,33 +47,58 @@ gulp.task('svgs', function() {
  */
 gulp.task('webfont', function() {
     return gulp.src([ srcIconsPath ])
-    .pipe(svgsize())
-    .pipe(webfont({
-        fontName: fontName,
-        iconClass: iconClass,
-        cssTemplate: srcCssTpl,
-        extension: 'less',
-        centerHorizontally: true,
-        fixedWidth: true,
-        normalize: true
-    }))
-    .on('glyphs', function(g) {
-        glyphs = g
-        gutil.log('Generated webfont', gutil.colors.green(fontName), 'with', gutil.colors.cyan(g.length), 'glyphs')
-    })
-    .pipe(gulp.dest(dstPath))
-    .pipe(less())
-    .pipe(gulp.dest(dstPath))
+        .pipe(svgsize())
+        .pipe(webfont({
+            fontName: fontName,
+            iconClass: iconClass,
+            cssTemplate: srcCssTpl,
+            extension: 'less',
+            centerHorizontally: true,
+            fixedWidth: true,
+            normalize: true
+        }))
+        .on('glyphs', function(g) {
+            glyphs = g
+            gutil.log('Generated webfont', gutil.colors.green(fontName), 'with', gutil.colors.cyan(g.length), 'glyphs')
+        })
+        .pipe(gulp.dest(dstPath))
+        .pipe(less())
+        .pipe(gulp.dest(dstPath))
 });
-
+gulp.task('webfontwingu', function() {
+    return gulp.src([ srcIconsPathWingu ])
+        .pipe(svgsize())
+        .pipe(webfont({
+            fontName: fontNameWingu,
+            iconClass: iconClass,
+            cssTemplate: srcCssTpl,
+            extension: 'less',
+            centerHorizontally: true,
+            fixedWidth: true,
+            normalize: true
+        }))
+        .on('glyphs', function(g) {
+            glyphswingu = g
+            gutil.log('Generated webfont', gutil.colors.green(fontNameWingu), 'with', gutil.colors.cyan(g.length), 'glyphs')
+        })
+        .pipe(gulp.dest(dstPath))
+        .pipe(less())
+        .pipe(gulp.dest(dstPath))
+});
 gulp.task('webfont-json-map', function(cb) {
     var glyphMap = _.keyBy(glyphs, 'name')
-    fs.writeFileSync(dstJsonMapFile, JSON.stringify(glyphMap))
+    var glyphMapWingu = _.keyBy(glyphswingu, 'name')
+    fs.writeFileSync(dstJsonMapFileUpp, JSON.stringify(glyphMap))
+    fs.writeFileSync(dstJsonMapFileWingu, JSON.stringify(glyphMapWingu))
     cb()
 });
 
 gulp.task('minify', function() {
-    return gulp.src(dstCssFile)
+    gulp.src(dstCssFile)
+        .pipe(cssmin({ compatibility: 'ie8' }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest(dstPath))
+    gulp.src(dstCssFileWingu)
         .pipe(cssmin({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest(dstPath))
@@ -82,13 +112,21 @@ gulp.task('demogen', function(cb) {
         iconClass: iconClass,
         glyphs: glyphs
     });
-    fs.writeFileSync(dstHtmlFile, htmlCompiled);
+    var htmlCompiledWingu = htmlCompiler({
+        fontName: fontNameWingu,
+        iconClass: iconClass,
+        glyphs: glyphs
+    });
+    fs.writeFileSync(dstHtmlUpplication, htmlCompiled);
+    fs.writeFileSync(dstHtmlWingu, htmlCompiledWingu);
     cb()
 })
 
 gulp.task('demo', function() {
-    return gulp.src(dstHtmlFile)
-                .pipe(open());
+    gulp.src(dstHtmlUpplication)
+        .pipe(open());
+    gulp.src(dstHtmlWingu)
+        .pipe(open());
 })
 
 gulp.task('gitwork', release())
@@ -105,6 +143,7 @@ gulp.task('version', function(cb) {
 
 gulp.task('default', function(cb) {
     seq('webfont',
+        'webfontwingu',
         'webfont-json-map',
         'minify',
         'demogen',
