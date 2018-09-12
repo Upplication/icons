@@ -23,7 +23,7 @@ var fontName  = 'upplication-icons'
 var srcPath        = './lib'
  ,  dstPath        = './dist'
  ,  srcIconsPath   = path.join(__dirname, srcPath, 'icons/*.svg')
- ,  srcIconsPathWingu   = path.join(__dirname, srcPath, 'icons-wingu/*.svg')
+ ,  srcIconsPathWingu   = path.join(__dirname, srcPath, 'iconswingu/*.svg')
  ,  srcHtmlTpl     = path.join(__dirname, srcPath, 'index.html.tpl')
  ,  dstHtmlUpplication    = path.join(__dirname, dstPath, 'indexupplication.html')
  ,  dstHtmlWingu    = path.join(__dirname, dstPath, 'indexwingu.html')
@@ -75,7 +75,7 @@ gulp.task('webfontwingu', function() {
             extension: 'less',
             centerHorizontally: true,
             fixedWidth: true,
-            normalize: true
+            normalize: true,
         }))
         .on('glyphs', function(g) {
             glyphswingu = g
@@ -93,7 +93,7 @@ gulp.task('webfont-json-map', function(cb) {
     cb()
 });
 
-gulp.task('minify', function() {
+gulp.task('minify', function(cb) {
     gulp.src(dstCssFile)
         .pipe(cssmin({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
@@ -102,6 +102,7 @@ gulp.task('minify', function() {
         .pipe(cssmin({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest(dstPath))
+    cb()
 })
 
 gulp.task('demogen', function(cb) {
@@ -115,18 +116,19 @@ gulp.task('demogen', function(cb) {
     var htmlCompiledWingu = htmlCompiler({
         fontName: fontNameWingu,
         iconClass: iconClass,
-        glyphs: glyphs
+        glyphs: glyphswingu
     });
     fs.writeFileSync(dstHtmlUpplication, htmlCompiled);
     fs.writeFileSync(dstHtmlWingu, htmlCompiledWingu);
     cb()
 })
 
-gulp.task('demo', function() {
+gulp.task('demo', function(cb) {
     gulp.src(dstHtmlUpplication)
         .pipe(open());
     gulp.src(dstHtmlWingu)
         .pipe(open());
+    cb()
 })
 
 gulp.task('gitwork', release())
