@@ -25,13 +25,13 @@ var srcPath        = './lib'
  ,  srcIconsPath   = path.join(__dirname, srcPath, 'icons/*.svg')
  ,  srcIconsPathWingu   = path.join(__dirname, srcPath, 'iconswingu/*.svg')
  ,  srcHtmlTpl     = path.join(__dirname, srcPath, 'index.html.tpl')
- ,  dstHtmlUpplication    = path.join(__dirname, dstPath, 'index.html')
- ,  dstHtmlWingu    = path.join(__dirname, dstPath, 'indexwingu.html')
- ,  dstJsonMapFileUpp = path.join(__dirname, dstPath, 'upplicationiconmap.json')
- ,  dstJsonMapFileWingu = path.join(__dirname, dstPath, 'winguiconmap.json')
+ ,  dstHtmlUpplication    = path.join(__dirname, dstPath, 'upplication/index.html')
+ ,  dstHtmlWingu    = path.join(__dirname, dstPath, 'wingu/index.html')
+ ,  dstJsonMapFileUpp = path.join(__dirname, dstPath, 'upplication/upplicationiconmap.json')
+ ,  dstJsonMapFileWingu = path.join(__dirname, dstPath, 'wingu/winguiconmap.json')
  ,  srcCssTpl      = path.join(__dirname, srcPath, 'iconfont.less.tpl')
- ,  dstCssFile     = path.join(__dirname, dstPath, fontName + '.css')
- ,  dstCssFileWingu     = path.join(__dirname, dstPath, fontNameWingu + '.css')
+ ,  dstCssFile     = path.join(__dirname, dstPath, 'upplication' , fontName + '.css')
+ ,  dstCssFileWingu     = path.join(__dirname, dstPath, 'wingu', fontNameWingu + '.css')
 var glyphs = [] // For sharing data among tasks
 var glyphswingu = []
 
@@ -63,7 +63,7 @@ gulp.task('webfont', function() {
         })
         .pipe(gulp.dest(dstPath))
         .pipe(less())
-        .pipe(gulp.dest(dstPath))
+        .pipe(gulp.dest('dist/upplication'))
 });
 gulp.task('webfontwingu', function() {
     return gulp.src([ srcIconsPathWingu ])
@@ -83,7 +83,7 @@ gulp.task('webfontwingu', function() {
         })
         .pipe(gulp.dest(dstPath))
         .pipe(less())
-        .pipe(gulp.dest(dstPath))
+        .pipe(gulp.dest('dist/wingu'))
 });
 gulp.task('webfont-json-map', function(cb) {
     var glyphMap = _.keyBy(glyphs, 'name')
@@ -97,11 +97,11 @@ gulp.task('minify', function(cb) {
     gulp.src(dstCssFile)
         .pipe(cssmin({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest(dstPath))
+        .pipe(gulp.dest('dist/upplication'))
     gulp.src(dstCssFileWingu)
         .pipe(cssmin({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest(dstPath))
+        .pipe(gulp.dest('dist/wingu'))
     cb()
 })
 
