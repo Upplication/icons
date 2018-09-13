@@ -1,8 +1,9 @@
 # Upplication Icons
-[![Build Status](https://travis-ci.org/Upplication/icons.svg?branch=master)](https://travis-ci.org/Upplication/icons)
 
-  This is the collection of icons used by Upplication in our dashboard and/or landing page.  
-Live demo available at http://upplication.github.io/icons
+  This is the collection of icons used by Upplication in our dashboard and/or landing page for Upplication and Wingu products.  
+Live demo available for Upplication icons: http://upplication.github.io/icons/upplication 
+and for Wingu:  http://upplication.github.io/icons/wingu
+
 
 ## Usage
 
@@ -13,7 +14,8 @@ $ bower install Upplication/icons
 
 ### Raw
 ```html
-<link rel="stylesheet" type="text/css" href="//upplication.github.io/icons/upplication-icons.css" />
+<link rel="stylesheet" type="text/css" href="//upplication.github.io/icons/upplication/upplication-icons.css" />
+<link rel="stylesheet" type="text/css" href="//upplication.github.io/icons/wingu/wingu-icons.css" />
 ```
 
 ## Gulp tasks
@@ -42,14 +44,14 @@ of a woff font that includes all of them and spit out the `dist/upplication-icon
 ```
 gulp demogen
 ```
-Given the available glyphs, generate `index.html`, containing all of the available icons.
+Given the available glyphs, generate `index.html` for Upplication and Wingu, containing all of the available icons.
 
 ### demo
 **DO NOT RUN THIS TASK BY ITSELF**
 ```
 gulp demo
 ```
-Opens the `index.html` file in the OS default browser
+Opens the `index.html` files in the OS default browser
 
 ### gitwork
 ```
